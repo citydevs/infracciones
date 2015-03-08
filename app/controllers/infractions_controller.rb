@@ -5,6 +5,14 @@ class InfractionsController < ApplicationController
   # GET /infractions.json
   def index
     @infractions = Infraction.all
+    @hash = Gmaps4rails.build_markers(@infractions) do |infra, marker|
+      puts infra.latitud
+         puts infra.longitud
+         puts 'te amo mucho ruuu y gracias por estar conmigo <3 '
+          marker.lat  infra.latitud
+            marker.lng  infra.longitud
+#            marker.infowindow 'zaazazaza'
+      end
   end
 
   # GET /infractions/1
@@ -69,6 +77,7 @@ class InfractionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def infraction_params
-      params.require(:infraction).permit(:nombre, :placa, :raking_honestidad, :raking_trato)
+      params.require(:infraction).permit(:nombre, :placa, :identificacion, :infraccion, :articulo, :sancion, :devolvio, :copia, :latitud, :longitud)
+
     end
 end
