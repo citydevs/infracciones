@@ -1,0 +1,58 @@
+<%= form_for(@cop) do |f| %>
+  <% if @cop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cop.errors.count, "error") %> prohibited this cop from being saved:</h2>
+
+      <ul>
+      <% @cop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_area :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :placa %><br>
+    <%= f.text_area :placa %>
+  </div>
+    <div class="field">
+    <%= f.label :identificacion %><br>
+    <%= f.text_area :identificacion %>
+  </div>
+    <div class="field">
+    <%= f.label :infraccion %><br>
+    <%= f.text_area :infraccion %>
+  </div>
+    <div class="field">
+    <%= f.label :articulo %><br>
+    <%= f.text_area :articulo %>
+  </div>
+    <div class="field">
+    <%= f.label :sancion %><br>
+    <%= f.text_area :sancion %>
+  </div>
+    <div class="field">
+    <%= f.label :devolvio %><br>
+    <%= f.text_area :devolvio %>
+  </div>
+    <div class="field">
+    <%= f.label :copia %><br>
+    <%= f.text_area :copia %>
+  </div>
+    <div class="field">
+    <%= f.label :latitud %><br>
+    <%= f.text_area :latitud %>
+  </div>
+    <div class="field">
+    <%= f.label :longitud %><br>
+    <%= f.text_area :longitud %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
