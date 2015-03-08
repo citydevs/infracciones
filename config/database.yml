@@ -2,8 +2,8 @@ postgresql: &postgresql
   adapter: postgresql
   host: localhost
   min_messages: ERROR
-  username: 
-  password: 
+  username: mikesaurio
+  password: maikisaurio
   pool: 5
   timeout: 5000
 
