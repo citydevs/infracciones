@@ -18,7 +18,7 @@ namespace :my_tasks do
 
 
   desc "Load Info conceptos to the db"
-  task :load_polis  => :environment do |t, args| 
+  task :load_conceptos  => :environment do |t, args| 
 
      cities_files = ['lib/datasets/conceptos.csv']
     
@@ -35,19 +35,19 @@ namespace :my_tasks do
 
 
   desc "Load Info incidentes to the db"
-  task :load_polis  => :environment do |t, args| 
+  task :load_incidentes  => :environment do |t, args| 
 
      cities_files = ['lib/datasets/incidentes.csv']
     
     cities_files.each do |city_file|
       CSV.foreach(city_file, :headers => true) do |row|
-        type = row.to_hash['tipo']
-        address = row.to_hash['direccion1'].to_s+'@'+row.to_hash['direccion2'].to_s+'@'+row.to_hash['direccion3'].to_s
-        date = row.to_hash['fecha']
+        tipo = row.to_hash['tipo']
+        address = row.to_hash['direccion1']
+        fecha = row.to_hash['fecha']
         latitude = row.to_hash['latitud']
         longitude = row.to_hash['longitud']
 
-          Incident.create( type: type, address: address, date: date, latitude: latitude, longitude: longitude)
+          Incident.create( tipo: tipo, address: address, fecha: fecha, latitude: latitude, longitude: longitude)
       end
     end
   end
