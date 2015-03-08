@@ -1,7 +1,11 @@
+
 $verde-claro: #4EB976;
-$verde-obscuro: #46AA6C;
+$verde-agua:#7ae9e8;
+$verde-obscuro: #5db1b1;
 $blanco: #ffffff;
 $negro: #000000;
+$amarillo:#f5fc32;
+$azul-medio:#5eb3b3;
 /*********************************************************************
 
 	Name:		Push - Bootstrap Button Pack
@@ -144,8 +148,9 @@ $negro: #000000;
 		outline: none;
 }
 .btn-success.outline:hover, .btn-success.outline:focus, .btn-success.outline:active, .btn-success.outline.active, .open > .dropdown-toggle.btn-success {
-	border-color: $blanco;
+	border-color: $verde-obscuro;
 	color: $blanco;
+	background:$amarillo;
 }
 .btn-success.outline:active, .btn-success.outline.active {
 	border-color: $blanco;
@@ -154,12 +159,14 @@ $negro: #000000;
 }
 
 .btn-success.outlineverde {
-	border: 2px solid $verde-claro;
-	color: $verde-obscuro;
+	border: 2px solid $amarillo;
+	color: $blanco;
+	background:$verde-obscuro;
 }
 .btn-success.outlineverde:hover, .btn-success.outlineverde:focus, .btn-success.outlineverde:active, .btn-success.outlineverde.active, .open > .dropdown-toggle.btn-success {
 	border-color: $verde-obscuro;
-	color: $blanco;
+	color: $verde-obscuro;
+	background:$amarillo;
 }
 .btn-success.outlineverde:active, .btn-success.outlineverde.active {
 	border-color: $verde-obscuro;

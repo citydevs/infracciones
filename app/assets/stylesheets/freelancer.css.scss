@@ -81,8 +81,9 @@ hr.star-primary:after {
 
 header {
     text-align: center;
-    color: #fff;
-    background: #18bc9c;
+    color: #5db1b1;
+    background: url(https://lh3.googleusercontent.com/-PGnXbMTG2rk/VPyPAVpKoLI/AAAAAAAACPY/VcGnOFen9xI/w816-h544-no/transito2.jpg) no-repeat;
+    background-size:100%;
 }
 
 header .container {
@@ -106,6 +107,8 @@ header .intro-text .name {
 header .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300;
+    color:#fff!important;
+    font-weihght:bolder;
 }
 
 @media(min-width:768px) {
@@ -136,6 +139,8 @@ header .intro-text .skills {
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+        width:200px!important;
+        height:auto!important;
     }
 
     .navbar-fixed-top.navbar-shrink {
@@ -180,8 +185,8 @@ section h2 {
 }
 
 section.success {
-    color: #fff;
-    background: #18bc9c;
+    color: #5db1b1;
+    background: #e8e8e8;
 }
 
 @media(max-width:767px) {
