@@ -8,7 +8,6 @@ class CopsController < ApplicationController
 
     if params[:tipo] == 'incidentes'
       incidentes_fill
-  
     elsif params[:tipo] == 'cop'
     @evaluacions= Evaluation.all
       @hash = Gmaps4rails.build_markers(@evaluacions) do |cop, marker|
@@ -20,7 +19,8 @@ class CopsController < ApplicationController
     incidentes_fill
     end
     @count =Evaluation.all.count 
-    unless @count.nil?
+
+    unless @count == 0
       @identificacion = Evaluation.all.sum(:identification) * 100 / @count
       @infraccion = Evaluation.all.sum(:infraccion) * 100 / @count
       @articulo = Evaluation.all.sum(:articulo)* 100 / @count
