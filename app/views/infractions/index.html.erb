@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Infractions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Placa</th>
+      <th>Raking honestidad</th>
+      <th>Raking trato</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @infractions.each do |infraction| %>
+      <tr>
+        <td><%= infraction.nombre %></td>
+        <td><%= infraction.placa %></td>
+        <td><%= infraction.raking_honestidad %></td>
+        <td><%= infraction.raking_trato %></td>
+        <td><%= link_to 'Show', infraction %></td>
+        <td><%= link_to 'Edit', edit_infraction_path(infraction) %></td>
+        <td><%= link_to 'Destroy', infraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Infraction', new_infraction_path %>

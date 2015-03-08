@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @infraction.nombre %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @infraction.placa %>
+</p>
+
+<p>
+  <strong>Raking honestidad:</strong>
+  <%= @infraction.raking_honestidad %>
+</p>
+
+<p>
+  <strong>Raking trato:</strong>
+  <%= @infraction.raking_trato %>
+</p>
+
+<%= link_to 'Edit', edit_infraction_path(@infraction) %> |
+<%= link_to 'Back', infractions_path %>

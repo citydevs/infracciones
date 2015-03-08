@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  placa: MyText
+  raking_honestidad: 1
+  raking_trato: 1
+
+two:
+  nombre: MyText
+  placa: MyText
+  raking_honestidad: 1
+  raking_trato: 1
