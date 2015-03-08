@@ -4,7 +4,7 @@ class CopsController < ApplicationController
   # GET /cops
   # GET /cops.json
   def index
-
+    @cops = Cop.all
 
     if params[:tipo] == 'incidentes'
       @incidents = Incident.all
@@ -14,7 +14,6 @@ class CopsController < ApplicationController
           marker.infowindow eva.fecha
       end
     else
-    @cops = Cop.all
       @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
         Evaluation.where(cop_id: cop.id).each do |eva|
           marker.lat  eva.latitude
