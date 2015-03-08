@@ -59,6 +59,87 @@
         </div>
     </div>
 </section>
+<section id="progress">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                  <h3>Percepción ciudadana</h3>
+                  <p>Evaluaciones otorgada por usuarios a los policias</p>
+                  <br>
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@identificacion}%;"%> class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                   ¿Se Identificó?
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@infraccion};"%> class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                    ¿Mencionó infracción?
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@articulo}%;"%> class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                    ¿Mostró artículo?
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@coincidio}%;"%> class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                    ¿Coincidió la sanción con la infracción?
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@documents}%;"%> class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                    ¿Devolvió documentos?
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9 col-md-push-3 text-rigth">
+                    <div class="progress">
+                          <div data-percentage="0%" style=<%="width: #{@copy}%;"%> class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-md-pull-9">
+                    Entregó copia de la infracción
+                  </div>
+                </div> 
+            </div>
+        </div>
+</section>
 
 <script type="text/javascript">
 
