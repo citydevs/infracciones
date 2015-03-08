@@ -39,7 +39,30 @@ class CopsController < ApplicationController
 
   # GET /cops/new
   def new
-    @cop = Cop.new
+
+    identification = params[:identification]
+    infraccion = params[:infraccion]
+    articulo = params[:articulo]
+    coincidio = params[:coincidio]
+    documents = params[:documents]
+    copy = params[:copy]
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    cop_id = Cop.where(placa: params[:cop_id]).first
+
+unless cop_id.nil?
+   Evaluation.create(
+    identification: identification, 
+      infraccion: infraccion,
+      articulo: articulo,
+      coincidio: coincidio,
+      documents: documents,
+      copy: copy,
+      latitude: latitude,
+      longitude:longitude,
+      cop_id: cop_id.id)
+end
+   
   end
 
   # GET /cops/1/edit
