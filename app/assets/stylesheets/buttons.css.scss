@@ -124,7 +124,7 @@ $azul-medio:#5eb3b3;
 }
 .btn.outlineverde {
 	background: none;
-	padding: 12px 22px;
+	padding: 45px 50px;
 		outline: none;
 }
 .btn-primary.outline {
@@ -162,6 +162,7 @@ $azul-medio:#5eb3b3;
 	border: 2px solid $amarillo;
 	color: $blanco;
 	background:$verde-obscuro;
+	border-raidus:0px!important;
 }
 .btn-success.outlineverde:hover, .btn-success.outlineverde:focus, .btn-success.outlineverde:active, .btn-success.outlineverde.active, .open > .dropdown-toggle.btn-success {
 	border-color: $verde-obscuro;

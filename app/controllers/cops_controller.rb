@@ -7,12 +7,8 @@ class CopsController < ApplicationController
     @cops = Cop.all
 
     if params[:tipo] == 'incidentes'
-      @incidents = Incident.all
-      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
-          marker.lat  eva.latitude
-          marker.lng  eva.longitude
-          marker.infowindow eva.fecha
-      end
+      incidentes_fill
+  
     elsif params[:tipo] == 'cop'
     @evaluacions= Evaluation.all
       @hash = Gmaps4rails.build_markers(@evaluacions) do |cop, marker|
@@ -20,6 +16,8 @@ class CopsController < ApplicationController
           marker.lng  cop.longitude
           marker.infowindow cop.cop_id
       end
+    else 
+    incidentes_fill
     end
     @count =Evaluation.all.count 
     unless @count.nil?
@@ -37,6 +35,15 @@ class CopsController < ApplicationController
       @documents = 0
       @copy = 0
     end
+  end
+
+  def incidentes_fill
+    @incidents = Incident.all
+      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
+          marker.lat  eva.latitude
+          marker.lng  eva.longitude
+          marker.infowindow eva.fecha
+              end
   end
 
   # GET /cops/1

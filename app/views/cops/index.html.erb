@@ -19,7 +19,7 @@
 </header>
 
 
-<section id="services">
+<section id="services" style="padding:50px 0 5px 0!important;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -60,12 +60,12 @@
                 <div class="row">
                   <div class="col-md-9 col-md-push-3 text-rigth">
                     <div class="progress">
-                          <div data-percentage="0%" style="width: <%=@identificacion%>%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          <div data-percentage="0%" style="width: <%=@identificacion%>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                           </div>
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                   Identificación correcta
+                   Identificación correcta <%= @identificacion%>%
                   </div>
                 </div>
 
@@ -77,7 +77,7 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                    Infracción correcta
+                    Infracción correcta <%= @infraccion%>%
                   </div>
                 </div>
 
@@ -89,7 +89,7 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                   Fundamento en el reglamento
+                   Fundamento en el reglamento <%= @articulo%>%
                   </div>
                 </div>
 
@@ -101,19 +101,19 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                    Sanción/Infracción correcta
+                    Sanción/Infracción correcta <%= @coincidio%>%;
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-9 col-md-push-3 text-rigth">
                     <div class="progress">
-                          <div data-percentage="0%" style="width: <%=@documents%>%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                          <div data-percentage="0%" style="width: <%=@documents%>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                           </div>
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                    Devolución de documentos
+                    Devolución de documentos <%= @documents%>%
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-md-pull-9">
-                    Copia de infracción
+                    Copia de infracción <%= @copy%>%
                   </div>
                 </div> 
             </div>
