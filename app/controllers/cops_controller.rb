@@ -4,14 +4,26 @@ class CopsController < ApplicationController
   # GET /cops
   # GET /cops.json
   def index
-    @cops = Cop.all
-    @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
+    if params[:cop]
+      @cops = Cop.all
+      @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
         Evaluation.where(cop_id: cop.id).each do |eva|
           marker.lat  eva.latitude
           marker.lng  eva.longitude
           marker.infowindow cop.nombre
         end
       end
+    else
+    @incidents = Incident.all
+      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
+          marker.lat  eva.latitude
+          marker.lng  eva.longitude
+          marker.infowindow '#{eva.address}   #{eva.fecha}'
+      end
+
+
+    end
+
   end
 
   # GET /cops/1
@@ -79,4 +91,4 @@ class CopsController < ApplicationController
       params.require(:cop).permit(:nombre, :placa, :identificacion, :infraccion, :articulo, :sancion, :devolvio, :copia, :latitud, :longitud)
 
     end
-end
+  end
