@@ -5,10 +5,12 @@ class CopsController < ApplicationController
   # GET /cops.json
   def index
     @cops = Cop.all
-    @hash = Gmaps4rails.build_markers(@cops) do |infra, marker|
-          marker.lat  infra.latitud
-            marker.lng  infra.longitud
-#            marker.infowindow 'zaazazaza'
+    @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
+        Evaluation.where(cop_id: cop.id).each do |eva|
+          marker.lat  eva.latitude
+          marker.lng  eva.longitude
+          marker.infowindow cop.nombre
+        end
       end
   end
 
