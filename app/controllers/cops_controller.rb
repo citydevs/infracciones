@@ -39,7 +39,7 @@ class CopsController < ApplicationController
 
   # GET /cops/new
   def new
-    /cops/new?identification=a&infraccion=a&articulo=a&coincidio=a&documents=a
+
     identification = params[:identification]
     infraccion = params[:infraccion]
     articulo = params[:articulo]
