@@ -22,36 +22,26 @@
 <section id="services">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-2 text-center">
+            <div class="col-md-8 col-md-offset-2 text-center">
                 <br>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="service-item">
                           <h4>
                             <%= image_tag "abrir.png", class: "img-responsive center-block" %>
                             <%=t('.nuevo')%> 
                         </h4>
                         <p class="bg-primary-nergro"><%=t('.texto_nuevo')%> </p></br>
-                        <%= link_to "Continuar",new_infraction_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
+                        <%= link_to "Evaluaciones",new_infraction_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="service-item">
                           <h4>
                             <%= image_tag "tramites.png", class: "img-responsive center-block" %>
                             <%=t('.tramite')%>
                         </h4>
                         <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
-                        <%= link_to "Consultar",new_infraction_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="service-item">
-                          <h4>
-                            <%= image_tag "tramites.png", class: "img-responsive center-block" %>
-                            <%=t('.tramite')%>
-                        </h4>
-                        <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
-                        <%= link_to "Consultar",new_infraction_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
+                        <%= link_to "Incidentes",new_infraction_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
                     </div>
                 </div>
             </div>
