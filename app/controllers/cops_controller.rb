@@ -13,23 +13,30 @@ class CopsController < ApplicationController
           marker.lng  eva.longitude
           marker.infowindow eva.fecha
       end
-    else
-      @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
-        Evaluation.where(cop_id: cop.id).each do |eva|
-          marker.lat  eva.latitude
-          marker.lng  eva.longitude
-          marker.infowindow cop.nombre
-        end
+    elsif params[:tipo] == 'cop'
+    @evaluacions= Evaluation.all
+      @hash = Gmaps4rails.build_markers(@evaluacions) do |cop, marker|
+          marker.lat  cop.latitude
+          marker.lng  cop.longitude
+          marker.infowindow cop.cop_id
       end
-      @identificacion = Evaluation.all.sum(:identification)
-      @infraccion = Evaluation.all.sum(:infraccion)
-      @articulo = Evaluation.all.sum(:articulo)
-      @coincidio = Evaluation.all.sum(:coincidio)
-      @documents = Evaluation.all.sum(:documents)
-      @copy = Evaluation.all.sum(:copy)
-
     end
-
+    @count =Evaluation.all.count 
+    unless @count.nil?
+      @identificacion = Evaluation.all.sum(:identification) * 100 / @count
+      @infraccion = Evaluation.all.sum(:infraccion) * 100 / @count
+      @articulo = Evaluation.all.sum(:articulo)* 100 / @count
+      @coincidio = Evaluation.all.sum(:coincidio)* 100 / @count
+      @documents = Evaluation.all.sum(:documents)* 100 / @count
+      @copy = Evaluation.all.sum(:copy)* 100 / @count
+    else
+      @identificacion = 0
+      @infraccion = 0
+      @articulo = 0
+      @coincidio = 0
+      @documents = 0
+      @copy = 0
+    end
   end
 
   # GET /cops/1
