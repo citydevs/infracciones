@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identification: 1
+  infraccion: 1
+  articulo: 1
+  coincidio: 1
+  documents: 1
+  copy: 1
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  identification: 1
+  infraccion: 1
+  articulo: 1
+  coincidio: 1
+  documents: 1
+  copy: 1
+  latitude: 1.5
+  longitude: 1.5

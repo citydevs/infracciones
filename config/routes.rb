@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  resources :incidents
+
   resources :concepts
 
-  resources :infractions 
+  resources :cops 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'infractions#index'
+   root 'cops#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
