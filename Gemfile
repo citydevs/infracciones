@@ -24,13 +24,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'gmaps4rails'
 gem 'underscore'
- gem 'bootstrap-sass', '~> 3.3.3'
-gem 'sass-rails', '>= 3.2'
+# Use SCSS for stylesheets
+
+gem 'font-awesome-rails'
+
+
+gem 'autoprefixer-rails'
 
 
 group :production do
- gem 'rails_12factor'
-
+  gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
