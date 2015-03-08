@@ -31,7 +31,7 @@
                             <%=t('.nuevo')%> 
                         </h4>
                         <p class="bg-primary-nergro"><%=t('.texto_nuevo')%> </p></br>
-                        <%= link_to "Evaluaciones", :controller => "cops", :action => "index", :id => 'cop', :class => 'btn btn-success btn-lg outlineverde'%>
+                        <%= link_to "Evaluaciones", cops_path( :anchor => "mapa", :tipo => 'cop')%>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -41,7 +41,7 @@
                             <%=t('.tramite')%>
                         </h4>
                         <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
-                        <%= link_to "Incidentes" ,:controller => "cops", :action => "index", :id => 'inci', :class => 'btn btn-success btn-lg outlineverde'%>
+                        <%= link_to "Incidentes",cops_path( :anchor => "mapa", :tipo => 'incidentes')%>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 </section>
 <%#=@infractions.fist.latitud%>
 
-<section id="services">
+<section id="mapa">
     <div class="container">
         <div class="row">
   <div id="map" style='width: 100%; height: 400px;'></div>

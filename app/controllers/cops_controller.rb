@@ -4,21 +4,22 @@ class CopsController < ApplicationController
   # GET /cops
   # GET /cops.json
   def index
-    if params[:cop]
-      @cops = Cop.all
+    if params[:tipo] == 'incidentes'
+
+      @incidents = Incident.all
+      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
+          marker.lat  eva.latitude
+          marker.lng  eva.longitude
+          marker.infowindow eva.fecha
+      end
+    else
+    @cops = Cop.all
       @hash = Gmaps4rails.build_markers(@cops) do |cop, marker|
         Evaluation.where(cop_id: cop.id).each do |eva|
           marker.lat  eva.latitude
           marker.lng  eva.longitude
           marker.infowindow cop.nombre
         end
-      end
-    else
-    @incidents = Incident.all
-      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
-          marker.lat  eva.latitude
-          marker.lng  eva.longitude
-          marker.infowindow '#{eva.address}   #{eva.fecha}'
       end
 
 
