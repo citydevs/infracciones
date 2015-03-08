@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Infraccion:</strong>
+  <%= @concept.infraccion %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @concept.monto %>
+</p>
+
+<p>
+  <strong>Corralon:</strong>
+  <%= @concept.corralon %>
+</p>
+
+<%= link_to 'Edit', edit_concept_path(@concept) %> |
+<%= link_to 'Back', concepts_path %>
