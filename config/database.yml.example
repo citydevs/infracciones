@@ -1,0 +1,30 @@
+# Install the pg driver:
+#   gem install pg
+# On Mac OS X with macports:
+#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# On Windows:
+#   gem install pg
+#       Choose the win32 build.
+#       Install PostgreSQL and put its /bin directory on your path.
+
+
+postgresql: &postgresql
+  adapter: postgresql
+  host: localhost
+  min_messages: ERROR
+  username: 
+  password: 
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *postgresql
+  database: basedeinfraccion_desarrollo
+
+test:
+  <<: *postgresql
+  database: basedeinfraccion_test
+
+production:
+  <<: *postgresql
+  database: basedeinfraccion_production
