@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308063712) do
+ActiveRecord::Schema.define(version: 20150512013125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20150308063712) do
     t.text     "corralon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "articulo"
+    t.text     "fraccion"
+    t.text     "parrafo"
+    t.text     "inciso"
+    t.text     "puntos"
   end
 
   create_table "cops", force: :cascade do |t|

@@ -69,6 +69,6 @@ class ConceptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def concept_params
-      params.require(:concept).permit(:infraccion, :monto, :corralon)
+      params.require(:concept).permit(:infraccion, :monto, :corralon, :articulo, :fraccion, :parrafo, :inciso, :puntos)
     end
 end
