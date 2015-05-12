@@ -5,7 +5,7 @@ namespace :my_tasks do
   task :load_polis  => :environment do |t, args| 
 
      cities_files = ['lib/datasets/cops.csv']
-    
+      Cop.delete_all
     cities_files.each do |city_file|
       CSV.foreach(city_file, :headers => true) do |row|
         nombre = row.to_hash['nombre']
@@ -27,8 +27,12 @@ namespace :my_tasks do
         infraccion = row.to_hash['infraccion']
         monto = row.to_hash['monto']
         corralon = row.to_hash['corralon']
+        articulo = row.to_hash['articulo']
+        fraccion = row.to_hash['fraccion']
+        parrafo = row.to_hash['parrafo']
+        inciso = row.to_hash['inciso']
 
-          Concept.create(infraccion: infraccion, monto: monto,  corralon: corralon)
+          Concept.create(infraccion: infraccion, monto: monto,  corralon: corralon,  articulo: articulo,  fraccion: fraccion,  parrafo: parrafo,  inciso: inciso)
       end
     end
   end
@@ -52,6 +56,9 @@ namespace :my_tasks do
     end
   end
 
+def multiplica_
+  
+end
 
 
 end
