@@ -9,14 +9,14 @@ class CopsController < ApplicationController
     if params[:tipo] == 'incidentes'
       incidentes_fill
     elsif params[:tipo] == 'cop'
-    @evaluacions= Evaluation.all
+      @evaluacions= Evaluation.all
       @hash = Gmaps4rails.build_markers(@evaluacions) do |cop, marker|
-          marker.lat  cop.latitude
-          marker.lng  cop.longitude
-          marker.infowindow cop.cop_id
+        marker.lat  cop.latitude
+        marker.lng  cop.longitude
+        marker.infowindow cop.cop_id
       end
     else 
-    incidentes_fill
+      incidentes_fill
     end
     @count =Evaluation.all.count 
 
@@ -39,11 +39,11 @@ class CopsController < ApplicationController
 
   def incidentes_fill
     @incidents = Incident.all
-      @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
-          marker.lat  eva.latitude
-          marker.lng  eva.longitude
-          marker.infowindow eva.fecha
-              end
+    @hash = Gmaps4rails.build_markers(@incidents) do |eva, marker|
+      marker.lat  eva.latitude
+      marker.lng  eva.longitude
+      marker.infowindow eva.fecha
+    end
   end
 
   # GET /cops/1
@@ -64,20 +64,33 @@ class CopsController < ApplicationController
     longitude = params[:longitude]
     cop_id = Cop.where(placa: params[:cop_id]).first
 
-unless cop_id.nil?
-   Evaluation.create(
-    identification: identification, 
-      infraccion: infraccion,
-      articulo: articulo,
-      coincidio: coincidio,
-      documents: documents,
-      copy: copy,
-      latitude: latitude,
-      longitude:longitude,
-      cop_id: cop_id.id)
+
+
+
+    unless cop_id.nil?
+      a =  Evaluation.create(
+        identification: identification, 
+        infraccion: infraccion,
+        articulo: articulo,
+        coincidio: coincidio,
+        documents: documents,
+        copy: copy,
+        latitude: latitude,
+        longitude:longitude,
+        cop_id: cop_id.id)
+
+      if a.save
+       render json: [aviso: 'OK']
+     else
+      render json: [aviso: 'falla']
+    end
+  else
+   render json: [aviso: 'Policia no encontrado']
+ end
+
+
+
 end
-   
-  end
 
   # GET /cops/1/edit
   def edit
