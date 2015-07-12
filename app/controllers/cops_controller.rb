@@ -64,9 +64,6 @@ class CopsController < ApplicationController
     longitude = params[:longitude]
     cop_id = Cop.where(placa: params[:cop_id]).first
 
-
-
-
     unless cop_id.nil?
       a =  Evaluation.create(
         identification: identification, 
@@ -78,18 +75,18 @@ class CopsController < ApplicationController
         latitude: latitude,
         longitude:longitude,
         cop_id: cop_id.id)
-
       if a.save
        render json: [aviso: 'OK']
      else
       render json: [aviso: 'falla']
     end
   else
-   render json: [aviso: 'Policia no encontrado']
+   render json: [aviso: 'policia no encontrado']
  end
+end
 
-
-
+def get_evaluations
+     
 end
 
   # GET /cops/1/edit
@@ -145,6 +142,5 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cop_params
       params.require(:cop).permit(:nombre, :placa, :identificacion, :infraccion, :articulo, :sancion, :devolvio, :copia, :latitud, :longitud)
-
     end
   end
