@@ -33,6 +33,8 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '>= 3.2'
 
+gem "httparty"
+
 
 
 group :production do

@@ -1,10 +1,15 @@
 class CopsController < ApplicationController
   before_action :set_cop, only: [:show, :edit, :update, :destroy]
-
   # GET /cops
   # GET /cops.json
   def index
+
+    if up_to_date?
+      reload_cops("http://201.144.220.174/infracciones/api/personal/acreditado")
+    end
+    
     @cops = Cop.all
+    
 
     if params[:tipo] == 'incidentes'
       incidentes_fill
@@ -35,6 +40,8 @@ class CopsController < ApplicationController
       @documents = 0
       @copy = 0
     end
+
+
   end
 
   def incidentes_fill
@@ -134,6 +141,25 @@ end
   end
 
   private
+
+   def up_to_date? 
+      if Cop.last.nil? || Cop.last.created_at < Time.now - 1.day
+       return  true
+      else
+      return false
+      end
+  end
+
+
+def reload_cops(url)
+     json =  response = HTTParty.get(url)
+      response = JSON.parse(json.body)
+      Cop.delete_all
+     response.each do |inf|
+        Cop.create(nombre: inf['nombre_completo'], placa: inf['placa'] )
+     end
+
+end
     # Use callbacks to share common setup or constraints between actions.
     def set_cop
       @cop = cop.find(params[:id])
