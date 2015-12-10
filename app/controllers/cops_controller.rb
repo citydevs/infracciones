@@ -5,7 +5,7 @@ class CopsController < ApplicationController
   def index
 
     if up_to_date?
-      reload_cops("http://201.144.220.174/infracciones/api/personal/acreditado")
+      #reload_cops("http://201.144.220.174/infracciones/api/personal/acreditado")
     end
     
     @cops = Cop.all
