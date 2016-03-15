@@ -1,5 +1,5 @@
 class EvaluationsController < ApplicationController
-
+ skip_before_action :verify_authenticity_token
   def index
      @evaluations = Evaluation.all
       @userlist = @evaluations.map do |u|
@@ -10,6 +10,24 @@ class EvaluationsController < ApplicationController
       end
         json = { :evaluations => @userlist }.to_json
         render json: json
+  end
+   def create
+    cop_id = Cop.where(placa: params[:cop_id]).first
+    unless cop_id.nil?
+      @evaluation = Evaluation.new(evaluation_params)
+      respond_to do |format|
+        if @evaluation.save
+          format.html { redirect_to @evaluation, notice: 'evaluation was successfully created.' }
+          render json: {msg: "Evaluación enviada correctamente"}
+        else
+          format.html { render :new }
+          format.json { render json: @evaluation.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      render json: [aviso: 'policia no encontrado']
+   end
+  
   end
 
 private 
